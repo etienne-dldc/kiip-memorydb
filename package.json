@@ -32,7 +32,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@kiip/core": "0.4.2",
+    "@kiip/core": "0.4.4",
     "@types/jest": "^26.0.0",
     "codecov": "^3.6.5",
     "core-js": "3.6.5",
@@ -42,6 +42,6 @@
     "typescript": "^3.9.2"
   },
   "peerDependencies": {
-    "@kiip/core": "0.4.2"
+    "@kiip/core": "0.4.4"
   }
 }

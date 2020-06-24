@@ -27,7 +27,10 @@ export function KiipMemoryDb(): KiipDatabase<Transaction> {
     },
     addDocument(_tx, document, onResolve) {
       return createKiipCallbackSync(() => {
-        db.documents.push(document);
+        db = {
+          ...db,
+          documents: [...db.documents, document]
+        };
       }, onResolve);
     },
     addFragments(_tx, fragments, onResolve) {
