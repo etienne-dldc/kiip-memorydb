@@ -5,6 +5,7 @@ import {
   KiipFragment,
   KiipDocument
 } from '@kiip/core';
+import { Subscription } from 'suub';
 
 export type Transaction = null;
 
@@ -17,7 +18,20 @@ export function KiipMemoryDb(): KiipDatabase<Transaction> {
     documents: []
   };
 
+  const documentsSub = Subscription<Array<KiipDocument<unknown>>>();
+  const documentSub = Subscription<KiipDocument<unknown>>();
+
   return {
+    subscribeDocuments(callback) {
+      return documentsSub.subscribe(callback);
+    },
+    subscribeDocument(documentId, callback) {
+      return documentSub.subscribe(doc => {
+        if (doc.id === documentId) {
+          callback(doc);
+        }
+      });
+    },
     withTransaction(exec) {
       return createKiipPromise(resolve => {
         return exec(null, val => {
@@ -31,6 +45,7 @@ export function KiipMemoryDb(): KiipDatabase<Transaction> {
           ...db,
           documents: [...db.documents, document]
         };
+        documentsSub.emit(db.documents);
       }, onResolve);
     },
     addFragments(_tx, fragments, onResolve) {
@@ -92,6 +107,11 @@ export function KiipMemoryDb(): KiipDatabase<Transaction> {
             };
           })
         };
+        const newDoc = db.documents.find(doc => doc.id === documentId);
+        if (newDoc) {
+          documentSub.emit(newDoc);
+        }
+        documentsSub.emit(db.documents);
       }, onResolve);
     }
   };
