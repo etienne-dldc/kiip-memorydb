@@ -1022,13 +1022,13 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@kiip/core@0.5.2":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@kiip/core/-/core-0.5.2.tgz#c2710b066055d80095917c348d068e32da54634b"
-  integrity sha512-tku9DEJnj595fPTdTUohfTiHh/vZ9xcJe9mU384HzLcadOmxX2m5+l4gBa4m6EPcFWQvIdUIdQEXqY4I4LYPUA==
+"@kiip/core@^0.5.3":
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/@kiip/core/-/core-0.5.3.tgz#678bdf3223eef4df14ce81a14d3d90384725a916"
+  integrity sha512-/SVKD3NKHSyqiAF1y4RtHSxY5nbH1sFww8wK0WKA8p69Btu/Y+qia4j5sPbeY1D5Jh2CRgco+ixfRaCjtvzBYw==
   dependencies:
     nanoid "^3.1.12"
-    suub "^3.0.1"
+    suub "^3.1.0"
 
 "@rollup/plugin-commonjs@^11.0.0":
   version "11.1.0"
@@ -6691,11 +6691,6 @@ supports-hyperlinks@^2.0.0:
   dependencies:
     has-flag "^4.0.0"
     supports-color "^7.0.0"
-
-suub@^3.0.1:
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/suub/-/suub-3.0.1.tgz#155e9a1038c6f2740412819edc463eb58922134f"
-  integrity sha512-0ERRH0DKP7XUuIWHdg+Ep4AwZGYlY88xvfAIIT0vMo8qjBbSQACHpE35dLWzi9hTDgSQjVjM89zjh1d86KX5Jg==
 
 suub@^3.1.0:
   version "3.1.0"
